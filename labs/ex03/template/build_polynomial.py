@@ -12,4 +12,8 @@ def build_poly(x, degree):
     # this function should return the matrix formed
     # by applying the polynomial basis to the input data
     # ***************************************************
-    raise NotImplementedError
+    if(len(x.shape) == 1):
+        x = x[np.newaxis]
+    X = x.T ** np.arange(degree+1)
+#     X = np.vander(x, degree+1, increasing=True)
+    return X
